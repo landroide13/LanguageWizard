@@ -1,0 +1,7 @@
+{
+  "name": "LanguageWizard",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
