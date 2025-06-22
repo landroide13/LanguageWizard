@@ -1,14 +1,29 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/level"></ion-back-button>
+      <ion-back-button defaultHref="/levels"></ion-back-button>
     </ion-buttons>
-    <ion-title>Steps </ion-title>
+    <ion-title>Step List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  
-  
+  <ion-img src="assets/images/wizard1.png" width="100%" height="100%"></ion-img>
+
+  <h3>Steps Title</h3>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let step of level?.steps" > 
+      <ion-card>
+        <ion-card-header [routerLink]="['/slideshow']">
+          <ion-card-subtitle>{{ step.title }}</ion-card-subtitle>
+          <ion-card-title></ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <app-fab-portrait></app-fab-portrait>
+
 </ion-content>

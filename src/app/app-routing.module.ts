@@ -12,11 +12,11 @@ const routes: Routes = [
     loadChildren: () => import('./features/language/language.module').then( m => m.LanguagePageModule)
   },
   {
-    path: 'level',
+    path: 'levels',
     loadChildren: () => import('./features/level/level.module').then( m => m.LevelPageModule)
   },
   {
-    path: 'step',
+    path: 'levels/:levelId',
     loadChildren: () => import('./features/step/step.module').then( m => m.StepPageModule)
   },
   {

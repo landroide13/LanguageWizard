@@ -15,7 +15,7 @@
     <ion-row>
       <ion-col size="4" *ngFor="let level of levels">
         <ion-chip color="primary" mode="ios" outline="true">
-          <ion-label [routerLink]="['/step']">{{ level?.title }}</ion-label>
+          <ion-label [routerLink]="['/levels/', level.id]">{{ level?.title }}</ion-label>
         </ion-chip>
       </ion-col>
     </ion-row>

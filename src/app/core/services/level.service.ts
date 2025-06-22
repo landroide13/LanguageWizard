@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Level, LevelResponse } from '../model/level';
+import { LevelDetail } from '../model/levelDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class LevelService {
       map(res => res.levels),
       catchError(this.handleError)
     )
+  } 
+
+  levelDetail(levelId: number): Observable<LevelDetail>{
+    return this.http.get<LevelDetail>(`${this.url}/${levelId}`)
   }
 
   private handleError(error: HttpErrorResponse) {

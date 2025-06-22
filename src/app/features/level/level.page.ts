@@ -15,7 +15,7 @@ export class LevelPage implements OnInit {
 
   constructor(private levelService: LevelService) { }
 
-  ngOnInit() {
+  ngOnInit() { 
     this.getLevels();
   }
 

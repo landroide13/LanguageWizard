@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { StepPageRoutingModule } from './step-routing.module';
 
 import { StepPage } from './step.page';
+import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait.component";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StepPageRoutingModule
-  ],
+    StepPageRoutingModule,
+    FabPortraitComponent
+],
   declarations: [StepPage]
 })
 export class StepPageModule {}
