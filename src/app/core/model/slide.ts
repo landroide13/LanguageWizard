@@ -6,7 +6,13 @@ export interface Slide {
     imagesCount: number,
     audioUrl: string,
     backgroundColor: string,
+    textOptions: TextOptions[]
     isAnimated: boolean,
     requiresAnswer: boolean
 }
 
+interface TextOptions{
+    id: number, 
+    expectedSelection: boolean, 
+    text: string
+}

@@ -1,18 +1,25 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/language"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding ion-margin">
 
-  <ion-title class="ion-margin">Choose Level</ion-title>
+  <h1>Choose Level</h1>
 
-  <ion-list>
-    <ion-item *ngFor="let level of levels">
-      <ion-label>{{ level.title }}</ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col size="4" *ngFor="let level of levels">
+        <ion-chip color="primary" mode="ios" outline="true">
+          <ion-label [routerLink]="['/step']">{{ level?.title }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>    
 
   <app-fab-portrait></app-fab-portrait>
  
