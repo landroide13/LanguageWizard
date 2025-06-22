@@ -17,6 +17,6 @@ import { FabPortraitComponent } from 'src/app/components/fab-portrait/fab-portra
     LanguagePageRoutingModule,
     FabPortraitComponent
   ],
-  declarations: [LanguagePage]
+  declarations: [LanguagePage],
 })
 export class LanguagePageModule {}

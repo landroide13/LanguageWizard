@@ -3,3 +3,7 @@ export interface Level {
     languageCode: string,
     title: string 
 }
+
+export interface LevelResponse {
+  levels: Level[];
+}

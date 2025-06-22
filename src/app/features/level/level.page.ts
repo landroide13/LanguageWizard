@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Level } from 'src/app/core/model/level';
+import { LevelService } from 'src/app/core/services/level.service';
 
 @Component({
   selector: 'app-level',
@@ -8,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LevelPage implements OnInit {
 
-  constructor() { }
+  levels: Level[] = [];
+  errorMessage: string | null = null;
+
+  constructor(private levelService: LevelService) { }
 
   ngOnInit() {
+    this.getLevels();
+  }
+
+  getLevels(){
+    this.levelService.getLevels().subscribe(
+      (levels: Level[]) => {
+        console.log(levels)
+        this.levels = levels
+      },
+       (error: string) => {
+        this.errorMessage = error; 
+      }
+    )
   }
 
 }

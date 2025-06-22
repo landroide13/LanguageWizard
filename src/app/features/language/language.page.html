@@ -1,10 +1,18 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Language List</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <ion-title>Language List</ion-title>
+
+  <ion-list>
+    <ion-item *ngFor="let lang of languages">
+      <ion-label>{{ lang?.name }}</ion-label>
+    </ion-item>
+  </ion-list>
 
   <app-fab-portrait></app-fab-portrait>
  

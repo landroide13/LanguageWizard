@@ -1,17 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { FabPortraitComponent } from 'src/app/components/fab-portrait/fab-portrait.component';
+import { Language } from 'src/app/core/model/language';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-language',
   templateUrl: './language.page.html',
   styleUrls: ['./language.page.scss'],
-  standalone: false,
+  standalone: false
 })
 export class LanguagePage implements OnInit {
 
-  constructor() { }
+  languages: Language[] = [];
+
+  errorMessage: string | null = null;
+
+  constructor(private langService: LanguageService) { }
 
   ngOnInit() {
+    this.getLanguages();
   }
 
+  getLanguages(){
+    this.langService.getLanguages().subscribe(
+      (langs: Language[]) => {
+      this.languages = langs
+      console.log(langs)
+    },
+    (error: string) => {
+      this.errorMessage = error; 
+    }
+  )}
+
 }
+

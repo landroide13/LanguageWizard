@@ -1,9 +1,19 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Level List</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding ion-margin">
+
+  <ion-title class="ion-margin">Choose Level</ion-title>
+
+  <ion-list>
+    <ion-item *ngFor="let level of levels">
+      <ion-label>{{ level.title }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <app-fab-portrait></app-fab-portrait>
  
 </ion-content>
