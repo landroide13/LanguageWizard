@@ -22,7 +22,7 @@ export class SlideshowPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSlides();
+    this.getSlides();  
   }
 
   getSlides(){

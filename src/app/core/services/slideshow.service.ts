@@ -14,12 +14,12 @@ export class SlideshowService {
 
   constructor(private http: HttpClient) { }
 
-  getSlides(): Observable<Slide[]>{
-    return this.http.get<Slide[]>(this.url)
-  }
-
   getSlide(id: number): Observable<Slideshow>{
     return this.http.get<Slideshow>(`${this.url}/${id}`)
   }
+
+  
+
+
 
 }
