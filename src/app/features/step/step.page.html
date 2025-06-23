@@ -16,7 +16,7 @@
   <ion-list lines="none">
     <ion-item *ngFor="let step of level?.steps" > 
       <ion-card>
-        <ion-card-header [routerLink]="['/slideshow']">
+        <ion-card-header [routerLink]="['/slideshows', step.id]">
           <ion-card-subtitle>{{ step.title }}</ion-card-subtitle>
           <ion-card-title></ion-card-title>
         </ion-card-header>

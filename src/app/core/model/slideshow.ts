@@ -4,3 +4,5 @@ export interface Slideshow {
     id: number,
     slides: Slide[]
 }
+
+

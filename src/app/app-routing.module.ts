@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/step/step.module').then( m => m.StepPageModule)
   },
   {
-    path: 'slideshow',
+    path: 'slideshows/:slideshowId',
     loadChildren: () => import('./features/slideshow/slideshow.module').then( m => m.SlideshowPageModule)
   },
 ];
