@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Slideshow } from 'src/app/core/model/slideshow';
 import { SlideshowService } from 'src/app/core/services/slideshow.service';
+import { ScreenOrientation } from '@capacitor/screen-orientation';
 
 @Component({
   selector: 'app-slideshow',
@@ -10,7 +11,7 @@ import { SlideshowService } from 'src/app/core/services/slideshow.service';
   styleUrls: ['./slideshow.page.scss'],
   standalone: false
 })
-export class SlideshowPage implements OnInit {
+export class SlideshowPage implements OnInit, OnDestroy {
 
   slideShow!: Slideshow;
   slideShowId!: number;
@@ -22,7 +23,8 @@ export class SlideshowPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSlides();  
+    this.getSlides();
+    this.toLandscape()  
   }
 
   getSlides(){
@@ -45,6 +47,22 @@ export class SlideshowPage implements OnInit {
         }
       });
     })
+  }
+
+  async toLandscape(){
+    try {
+      await ScreenOrientation.lock({ orientation: 'landscape' });
+    } catch (err) {
+      console.error('Failed to lock orientation', err);
+    }
+  }
+
+  async ngOnDestroy() {
+    try {
+      await ScreenOrientation.unlock();
+    } catch (err) {
+      console.error('Failed to unlock orientation', err);
+    }
   }
 
 

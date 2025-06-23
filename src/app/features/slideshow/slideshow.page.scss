@@ -4,3 +4,34 @@
   padding-right: 8px;
   scroll-behavior: smooth;
 }
+
+.landscape-layout {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  gap: 16px; // optional spacing between panes
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.left-pane,
+.right-pane {
+  flex: 1 1 50%;
+  overflow-y: auto;
+}
+
+@media (orientation: portrait) {
+  .landscape-layout {
+    flex-direction: column;
+  }
+
+  .left-pane,
+  .right-pane {
+    flex: 1 1 auto;
+  }
+}
+
+
+
+
