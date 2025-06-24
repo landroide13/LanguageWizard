@@ -1,0 +1,25 @@
+ion-avatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.climbing-cat {
+  width: 100%;
+  height: auto;
+  animation: climb 0.4s ease-in;
+}
+
+@keyframes climb {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+

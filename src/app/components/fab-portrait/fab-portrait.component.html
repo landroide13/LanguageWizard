@@ -1,4 +1,4 @@
-<ion-fab slot="fixed" horizontal="end" vertical="bottom">
+<ion-fab slot="fixed" [horizontal]="horizontal" [vertical]="vertical">
   <ion-fab-button>
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
@@ -14,7 +14,7 @@
     </ion-fab-button>
   </ion-fab-list>
   <ion-fab-list side="start">
-    <ion-fab-button>
+    <ion-fab-button> 
       <ion-icon name="document"></ion-icon>
     </ion-fab-button>
     <ion-fab-button>

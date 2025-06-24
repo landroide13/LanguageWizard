@@ -15,6 +15,8 @@ export class StepPage implements OnInit {
   level!: LevelDetail;
   levelId!: number;
 
+  activeIndex!: number;
+
   constructor(private actRoute: ActivatedRoute, 
     private navCtr: NavController,
     private levelServ: LevelService
@@ -23,6 +25,7 @@ export class StepPage implements OnInit {
 
   ngOnInit() {
     this.loadStep();
+    this.animateClimb();
   }
 
   loadStep(){
@@ -35,6 +38,7 @@ export class StepPage implements OnInit {
       this.levelServ.levelDetail(this.levelId).subscribe({
         next: (res) => {
           this.level = res;
+          this.activeIndex = this.level.steps.length - 1;
           console.log(res)
         },
         error: (err) => {
@@ -42,6 +46,17 @@ export class StepPage implements OnInit {
         }
       });
     })
+  }
+
+  async animateClimb() {
+    for (let i = this.level.steps.length - 1; i >= 0; i--) {
+      this.activeIndex = i;
+      await this.delay(600); 
+    }
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }  

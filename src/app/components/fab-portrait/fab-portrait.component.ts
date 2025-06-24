@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { IonIcon, IonFab } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-fab-portrait',
@@ -11,6 +10,9 @@ import { IonIcon, IonFab } from "@ionic/angular/standalone";
   standalone: true
 })
 export class FabPortraitComponent  implements OnInit {
+
+  @Input() vertical!: string;
+  @Input() horizontal!: string;
 
   constructor() { }
 

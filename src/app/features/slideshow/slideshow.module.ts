@@ -9,6 +9,7 @@ import { SlideshowPageRoutingModule } from './slideshow-routing.module';
 import { SlideshowPage } from './slideshow.page';
 import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait.component";
 import { SlideComponent } from "../../components/slide/slide.component";
+import { FabLandscapeComponent } from "../../components/fab-landscape/fab-landscape.component";
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { SlideComponent } from "../../components/slide/slide.component";
     IonicModule,
     SlideshowPageRoutingModule,
     FabPortraitComponent,
-    SlideComponent
+    SlideComponent,
+    FabLandscapeComponent
 ],
   declarations: [SlideshowPage]
 })

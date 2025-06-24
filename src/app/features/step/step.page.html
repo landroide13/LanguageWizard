@@ -3,27 +3,41 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/levels"></ion-back-button>
     </ion-buttons>
-    <ion-title>Step List</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" fullscreen="true">
 
-  <ion-img src="assets/images/wizard1.png" width="100%" height="100%"></ion-img>
+  <ion-img src="assets/images/wizard1.png" class="ion-padding"></ion-img>
 
-  <h3>Steps Title</h3>
+  <h4>Steps Title</h4>
 
-  <ion-list lines="none">
-    <ion-item *ngFor="let step of level?.steps" > 
-      <ion-card>
-        <ion-card-header [routerLink]="['/slideshows', step.id]">
-          <ion-card-subtitle>{{ step.title }}</ion-card-subtitle>
-          <ion-card-title></ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+  <ion-grid fixed>
+    <ion-row class="ion-margin"> 
+      <ion-col size="12"  size-sm="8" offset-sm="2" >
 
-  <app-fab-portrait></app-fab-portrait>
+        <ion-list lines="none">
+          <ion-item *ngFor="let step of level?.steps; let i = index"> 
+            <ion-card color="medium">
+              <ion-card-header [routerLink]="['/slideshows', step.id]">
+                <ion-card-subtitle col="success">
+                  {{ step.title }}
+                </ion-card-subtitle>
+                <ion-card-title></ion-card-title>
+              </ion-card-header>
+            </ion-card>
+            <ion-avatar slot="start">
+              <ion-icon *ngIf="i === 1" name="logo-octocat" size="large"></ion-icon>
+            </ion-avatar>
+          </ion-item>
+        </ion-list>
 
-</ion-content>
+        <app-fab-portrait  horizontal="end" vertical="bottom"></app-fab-portrait>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content> 
+   

@@ -14,7 +14,7 @@
     <ion-row>
       <ion-col size="6" *ngFor="let lang of languages">
 
-        <ion-chip color="primary" mode="ios" outline="true">
+        <ion-chip color="medium" mode="ios" >
           <ion-label [routerLink]="lang.code === 'en' ? ['/levels'] : null">{{ lang?.name }}</ion-label>
         </ion-chip>
 
@@ -23,6 +23,6 @@
   </ion-grid>
 
   
-  <app-fab-portrait></app-fab-portrait>
+  <app-fab-portrait horizontal="end" vertical="bottom"></app-fab-portrait>
  
 </ion-content>

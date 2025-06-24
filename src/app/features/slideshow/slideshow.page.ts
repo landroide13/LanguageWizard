@@ -71,7 +71,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
     this.seletedSlide = slide;
     console.log(slide)
   }
-
+ 
 
 
 }
