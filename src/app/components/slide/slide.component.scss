@@ -1,0 +1,33 @@
+.card-horizontal ion-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-vertical ion-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+audio {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Text Animation */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in-text {
+  animation: zoomIn 0.6s ease-out;
+}

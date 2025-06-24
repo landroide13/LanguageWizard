@@ -8,6 +8,7 @@ import { SlideshowPageRoutingModule } from './slideshow-routing.module';
 
 import { SlideshowPage } from './slideshow.page';
 import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait.component";
+import { SlideComponent } from "../../components/slide/slide.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait
     FormsModule,
     IonicModule,
     SlideshowPageRoutingModule,
-    FabPortraitComponent
+    FabPortraitComponent,
+    SlideComponent
 ],
   declarations: [SlideshowPage]
 })

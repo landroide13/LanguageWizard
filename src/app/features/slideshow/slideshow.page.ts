@@ -16,7 +16,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
 
   slideShow!: Slideshow;
   slideShowId!: number;
-  seletedSlide!: Slide;
+  seletedSlide!: Slide | null;
 
   constructor(
     private slideShowServ: SlideshowService, 
@@ -69,6 +69,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
 
   onSelectedSlide(slide:Slide){
     this.seletedSlide = slide;
+    console.log(slide)
   }
 
 

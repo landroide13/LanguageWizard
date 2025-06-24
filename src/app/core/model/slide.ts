@@ -2,7 +2,7 @@ export interface Slide {
     id: number,
     template: string,
     text: string,
-    images: string[],
+    images: ImageObject[],
     imagesCount: number,
     audioUrl: string,
     backgroundColor: string,
@@ -10,6 +10,11 @@ export interface Slide {
     isAnimated: boolean,
     requiresAnswer: boolean
 }
+
+interface ImageObject {
+  url: string;
+}
+
 
 interface TextOptions{
     id: number, 

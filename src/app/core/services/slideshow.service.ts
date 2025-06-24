@@ -1,9 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Slideshow } from '../model/slideshow';
-import { Slide } from '../model/slide';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +16,5 @@ export class SlideshowService {
   getSlide(id: number): Observable<Slideshow>{
     return this.http.get<Slideshow>(`${this.url}/${id}`)
   }
-
-  
-
-
 
 }
