@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { Slideshow } from 'src/app/core/model/slideshow';
 import { SlideshowService } from 'src/app/core/services/slideshow.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
+import { Slide } from 'src/app/core/model/slide';
 
 @Component({
   selector: 'app-slideshow',
@@ -15,6 +16,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
 
   slideShow!: Slideshow;
   slideShowId!: number;
+  seletedSlide!: Slide;
 
   constructor(
     private slideShowServ: SlideshowService, 
@@ -24,7 +26,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getSlides();
-    this.toLandscape()  
+    this.toLandscape();  
   }
 
   getSlides(){
@@ -63,6 +65,10 @@ export class SlideshowPage implements OnInit, OnDestroy {
     } catch (err) {
       console.error('Failed to unlock orientation', err);
     }
+  }
+
+  onSelectedSlide(slide:Slide){
+    this.seletedSlide = slide;
   }
 
 

@@ -21,6 +21,10 @@
   overflow-y: auto;
 }
 
+ion-content {
+  --overflow: hidden;
+}
+
 @media (orientation: portrait) {
   .landscape-layout {
     flex-direction: column;
