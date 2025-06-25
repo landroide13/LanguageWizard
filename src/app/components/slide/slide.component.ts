@@ -38,11 +38,9 @@ export class SlideComponent  implements OnInit, OnChanges {
   loadSlide(){
     this.slideServ.getSlideById(this.id).subscribe({
       next: slide => this.slide = slide,
-      //error: (err) => console.error('Failed to load slide:', err)
       error: (err) => {
           if (err.status === 404) {
             this.presentAlert(err)
-            //this.router.navigate(['/levels/0']);  
           } else {
             console.error('Unexpected error', err);
           }

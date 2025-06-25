@@ -1,8 +1,4 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar color="medium">
-    <ion-title> <h4>Your Steps</h4> </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header title="Your Steps" color="medium"></app-header>
 
 <ion-content class="ion-padding" fullscreen="true">
 
@@ -10,7 +6,7 @@
     <ion-row class="ion-margin"> 
       <ion-col size="12"  size-sm="8" offset-sm="2">
 
-        <ion-img src="assets/images/wizard1.png" class="ion-padding"></ion-img>
+        <ion-img src="assets/images/wizard1.png" class="ion-padding img-bordered"></ion-img>
 
         <ion-list lines="none">
           <ion-item *ngFor="let step of level?.steps; let i = index"> 
@@ -20,7 +16,7 @@
                   {{ step.title }}
                 </ion-card-subtitle>
                 <ion-card-title></ion-card-title> 
-              </ion-card-header>
+              </ion-card-header> 
             </ion-card>
             <ion-avatar slot="start">
               <ion-icon *ngIf="i === 1" name="logo-octocat" size="large" class="flip-icon"></ion-icon>

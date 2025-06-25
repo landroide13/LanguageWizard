@@ -8,6 +8,7 @@ import { StepPageRoutingModule } from './step-routing.module';
 
 import { StepPage } from './step.page';
 import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait.component";
+import { HeaderComponent } from "../../components/header/header.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait
     FormsModule,
     IonicModule,
     StepPageRoutingModule,
-    FabPortraitComponent
+    FabPortraitComponent,
+    HeaderComponent
 ],
   declarations: [StepPage]
 })

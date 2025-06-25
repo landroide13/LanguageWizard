@@ -8,6 +8,7 @@ import { LanguagePageRoutingModule } from './language-routing.module';
 
 import { LanguagePage } from './language.page';
 import { FabPortraitComponent } from 'src/app/components/fab-portrait/fab-portrait.component';
+import { HeaderComponent } from "../../components/header/header.component";
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ import { FabPortraitComponent } from 'src/app/components/fab-portrait/fab-portra
     FormsModule,
     IonicModule,
     LanguagePageRoutingModule,
-    FabPortraitComponent
-  ],
+    FabPortraitComponent,
+    HeaderComponent
+],
   declarations: [LanguagePage],
 })
 export class LanguagePageModule {}

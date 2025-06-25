@@ -17,7 +17,7 @@ export class FabPortraitComponent  implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {} 
 
   navBack(){
     this.router.navigateByUrl('/')

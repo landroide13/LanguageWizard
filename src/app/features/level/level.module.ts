@@ -8,6 +8,7 @@ import { LevelPageRoutingModule } from './level-routing.module';
 
 import { LevelPage } from './level.page';
 import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait.component";
+import { HeaderComponent } from "../../components/header/header.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { FabPortraitComponent } from "../../components/fab-portrait/fab-portrait
     FormsModule,
     IonicModule,
     LevelPageRoutingModule,
-    FabPortraitComponent
+    FabPortraitComponent,
+    HeaderComponent
 ],
   declarations: [LevelPage]
 })

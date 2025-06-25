@@ -14,7 +14,9 @@ export class LanguagePage implements OnInit {
 
   errorMessage: string | null = null;
 
-  constructor(private langService: LanguageService) { }
+  constructor(
+    private langService: LanguageService,
+  ){ }
 
   ngOnInit() {
     this.getLanguages();
