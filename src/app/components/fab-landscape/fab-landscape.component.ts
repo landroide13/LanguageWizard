@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -11,8 +12,16 @@ import { IonicModule } from '@ionic/angular';
 })
 export class FabLandscapeComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
+
+  navBack(){
+    this.router.navigateByUrl('/')
+  }
+
+  navToLevels(){
+    this.router.navigateByUrl('/levels/0')
+  }
 
 }

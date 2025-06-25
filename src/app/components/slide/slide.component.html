@@ -1,4 +1,4 @@
-<ion-card *ngIf="slide" [ngClass]="slide.images?.length ? 'card-horizontal' : 'card-vertical'">
+<ion-card color="medium" *ngIf="slide" [ngClass]="slide.images?.length ? 'card-horizontal' : 'card-vertical'">
   <ion-grid>
     <ion-row *ngIf="slide?.images?.length">
       <ion-col size="5">
@@ -12,7 +12,7 @@
           <ion-card-subtitle>{{ slide.template }}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <audio [src]="slide.audioUrl" controls></audio>
+          <audio [src]="slide.audioUrl" controls></audio> 
         </ion-card-content>
         <h4 *ngIf="!slide.requiresAnswer">Skip to Next</h4>
       </ion-col>

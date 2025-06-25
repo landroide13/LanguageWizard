@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Slideshow } from 'src/app/core/model/slideshow';
 import { SlideshowService } from 'src/app/core/services/slideshow.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
@@ -18,11 +18,15 @@ export class SlideshowPage implements OnInit, OnDestroy {
   slideShowId!: number;
   seletedSlide!: Slide | null;
 
+  isAlertOpen = false;
+  alertButtons = ['Action'];
+
   constructor(
     private slideShowServ: SlideshowService, 
     private actRoute: ActivatedRoute, 
     private navCtr: NavController,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -45,7 +49,8 @@ export class SlideshowPage implements OnInit, OnDestroy {
         },
         error: (err) => {
           if (err.status === 404) {
-            this.router.navigate(['/levels/0']);
+            this.presentAlert(err)
+            this.router.navigate(['/levels/0']);  
           } else {
             console.error('Unexpected error', err);
           }
@@ -53,6 +58,8 @@ export class SlideshowPage implements OnInit, OnDestroy {
       });
     })
   }
+
+
 
   async toLandscape(){
     try {
@@ -74,7 +81,15 @@ export class SlideshowPage implements OnInit, OnDestroy {
     this.seletedSlide = slide;
     console.log(slide)
   }
- 
+  
+  async presentAlert(err: string) {
+    const alert = await this.alertController.create({
+      header: 'This Step is not Available',
+      buttons: ['Close'],
+    });
+
+    await alert.present();
+  }
 
 
 }

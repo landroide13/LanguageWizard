@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -14,8 +15,15 @@ export class FabPortraitComponent  implements OnInit {
   @Input() vertical!: string;
   @Input() horizontal!: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
+  navBack(){
+    this.router.navigateByUrl('/')
+  }
+
+  navToLevels(){
+    this.router.navigateByUrl('/levels/0')
+  }
 }

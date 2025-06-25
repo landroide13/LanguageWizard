@@ -12,25 +12,29 @@
       </div>
       
       <div *ngIf="!seletedSlide" class="ion-text-center ion-justify-content-center">
-        <p>No Lesson Selected..</p>
+        <ion-card color="medium">
+          <ion-card-header>
+            <ion-card-title>Current Lesson</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>No Lesson Selected..</p>
+          </ion-card-content>
+          </ion-card>
       </div>
 
     </div>
 
     <div class="right-pane">
-      <ion-card>
+      <ion-card color="medium">
         <ion-card-header>
-          <ion-card-title>Slideshows</ion-card-title>
+          <ion-card-title>Your Lessons</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <div class="scrollable-list">
-            <ion-list lines="none">
-              <ion-item *ngFor="let slide of slideShow?.slides" (click)="onSelectedSlide(slide)">
-                <ion-thumbnail slot="start">
-                  <img src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                </ion-thumbnail>
+            <ion-list>
+              <ion-item color="medium" *ngFor="let slide of slideShow?.slides" (click)="onSelectedSlide(slide)">
                 <ion-label>
-                  <h4>{{ slide.template }}</h4>
+                  <h2>Lesson #:{{ slide.id }}</h2>
                 </ion-label>
               </ion-item>
             </ion-list>

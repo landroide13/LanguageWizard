@@ -4,22 +4,44 @@ ion-avatar {
   height: 40px;
 }
 
-.climbing-cat {
-  width: 100%;
-  height: auto;
-  animation: climb 0.4s ease-in;
+// .climbing-cat {
+//   width: 100%;
+//   height: auto;
+//   animation: climb 0.4s ease-in;
+// }
+
+// @keyframes climb {
+//   0% {
+//     transform: translateY(10px);
+//     opacity: 0;
+//   }
+//   100% {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+// }
+
+.flip-icon {
+  animation: flipIn 1s ease-in-out forwards;
+  transform-style: preserve-3d;
 }
 
-@keyframes climb {
+@keyframes flipIn {
   0% {
-    transform: translateY(10px);
+    transform: rotateY(180deg);
     opacity: 0;
   }
   100% {
-    transform: translateY(0);
+    transform: rotateY(0deg);
     opacity: 1;
-  }
+  }  
 }
+
+.flipped {
+  animation: flipY 1s ease-in-out;
+}
+
+
 
 
 

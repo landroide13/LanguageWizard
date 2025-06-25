@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { LevelDetail } from 'src/app/core/model/levelDetail';
@@ -10,7 +10,7 @@ import { LevelService } from 'src/app/core/services/level.service';
   styleUrls: ['./step.page.scss'],
   standalone: false
 })
-export class StepPage implements OnInit {
+export class StepPage implements OnInit, AfterViewInit {
 
   level!: LevelDetail;
   levelId!: number;
@@ -20,12 +20,20 @@ export class StepPage implements OnInit {
   constructor(private actRoute: ActivatedRoute, 
     private navCtr: NavController,
     private levelServ: LevelService
-  
   ) { }
 
   ngOnInit() {
     this.loadStep();
     this.animateClimb();
+  }
+
+  ngAfterViewInit() {
+    setInterval(() => {
+      const el = document.querySelector('.flip-icon');
+      el?.classList.add('flipped');
+
+      setTimeout(() => el?.classList.remove('flipped'), 1000);
+    }, 3000);  
   }
 
   loadStep(){
@@ -48,15 +56,18 @@ export class StepPage implements OnInit {
     })
   }
 
+  //Progress Make the Cat Climb. 
   async animateClimb() {
     for (let i = this.level.steps.length - 1; i >= 0; i--) {
       this.activeIndex = i;
       await this.delay(600); 
     }
-  }
+  } 
 
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+
 
 }  
