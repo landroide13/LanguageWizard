@@ -1,4 +1,4 @@
-export interface Slide {
+export interface Slidedetail {
     id: number,
     template: string,
     text: string,
@@ -8,7 +8,13 @@ export interface Slide {
     backgroundColor: string,
     textOptions: TextOptions[]
     isAnimated: boolean,
-    requiresAnswer: boolean
+    requiresAnswer: boolean 
+}
+
+export interface Slide{
+  id: number,
+  order: number,
+  template: string,
 }
 
 interface ImageObject {

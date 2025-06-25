@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Slideshow } from 'src/app/core/model/slideshow';
 import { SlideshowService } from 'src/app/core/services/slideshow.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
-import { Slide } from 'src/app/core/model/slide';
+import { Slidedetail, Slide } from 'src/app/core/model/slide';
 
 @Component({
   selector: 'app-slideshow',
@@ -21,7 +21,8 @@ export class SlideshowPage implements OnInit, OnDestroy {
   constructor(
     private slideShowServ: SlideshowService, 
     private actRoute: ActivatedRoute, 
-    private navCtr: NavController
+    private navCtr: NavController,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,18 +35,20 @@ export class SlideshowPage implements OnInit, OnDestroy {
       const id = +this.actRoute.snapshot.paramMap.get('slideshowId')!;
       if(!paramMap.has('slideshowId') || null){
         this.navCtr.navigateBack('/levels/0');
-        console.log(id)
         return;
       }
       this.slideShowId = id;
-      console.log(this.slideShowId)
       this.slideShowServ.getSlide(this.slideShowId).subscribe({
         next: (res) => {
           this.slideShow = res;
-          console.log(res)
+          console.log(res.slides)
         },
         error: (err) => {
-          console.error('Failed to load slide', err);
+          if (err.status === 404) {
+            this.router.navigate(['/levels/0']);
+          } else {
+            console.error('Unexpected error', err);
+          }
         }
       });
     })

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { Slide } from 'src/app/core/model/slide';
+import { Slidedetail, Slide } from 'src/app/core/model/slide';
 import { SlideService } from '../../core/services/slide.service';
 import { CommonModule } from '@angular/common';
 
@@ -13,11 +13,12 @@ import { CommonModule } from '@angular/common';
 export class SlideComponent  implements OnInit, OnChanges {
 
   @Input() id!:number;
-  slide!:Slide | null;
+  slide!:Slidedetail | null;
+  @Input() order!:number;
 
   constructor(private slideServ: SlideService) { }
 
-  ngOnInit() {
+  ngOnInit() { 
     this.loadSlide();
   }
 
@@ -35,8 +36,8 @@ export class SlideComponent  implements OnInit, OnChanges {
       error: (err) => console.error('Failed to load slide:', err)
     })
   }
-
-  clearState(): void {
+ 
+  clearState(): void { 
     this.slide = null;
   }
   
