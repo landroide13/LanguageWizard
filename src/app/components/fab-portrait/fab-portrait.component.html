@@ -2,20 +2,15 @@
   <ion-fab-button>
     <ion-icon name="grid"></ion-icon>
   </ion-fab-button>
-  <ion-fab-list side="top">
+  <ion-fab-list [side]="side">
     <ion-fab-button>
-      <ion-icon name="arrow-back-circle" (click)="navBack()" size="large"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button>
-      <ion-icon name="arrow-forward-circle" (click)="navToLevels()" size="large"></ion-icon>
+      <ion-icon name="globe" (click)="navBack()" size="large"></ion-icon>
     </ion-fab-button>
     <ion-fab-button>
-      <ion-icon name="qr-code-outline" size="large"></ion-icon>
+      <ion-icon name="arrow-back-circle" (click)="navToLevels()" size="large"></ion-icon>
     </ion-fab-button>
-  </ion-fab-list>
-  <!-- <ion-fab-list side="start">  
-    <ion-fab-button> 
-      <ion-icon name="document"></ion-icon>
+    <ion-fab-button>
+      <ion-icon  name="code-working" (click)="openModal()" size="large"></ion-icon>
     </ion-fab-button>
-  </ion-fab-list> -->
+  </ion-fab-list>  
 </ion-fab>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-fab-portrait',
@@ -14,16 +15,26 @@ export class FabPortraitComponent  implements OnInit {
 
   @Input() vertical!: string;
   @Input() horizontal!: string;
+  @Input() side!: string;
+  @Input() onOpenModal!: () => void;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private modalService: ModalService
+  ) { }
 
   ngOnInit() {} 
 
   navBack(){
     this.router.navigateByUrl('/')
-  }
+  } 
 
-  navToLevels(){
+  navToLevels(){ 
     this.router.navigateByUrl('/levels/0')
   }
+
+  openModal() {
+    this.modalService.openProgressModal();
+  }
+
 }

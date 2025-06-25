@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title>Progress Overall</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-card-title>Your Progress</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-progress-bar [value]="userProgress / 100" ></ion-progress-bar>
+      <p>{{ userProgress }}%</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Other Subscribers</ion-card-title>
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let other of otherUsersProgress" color="medium">
+        <ion-label>{{ other.name }}</ion-label>
+        <ion-progress-bar [value]="other.progress / 100"></ion-progress-bar>
+        <ion-note slot="end">{{ other.progress }}%</ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

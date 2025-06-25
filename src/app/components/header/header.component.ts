@@ -20,7 +20,7 @@ export class HeaderComponent  implements OnInit {
   constructor(private ui:UiService) { }
 
   ngOnInit() {
-    this.getNetworkStatus(); 
+    this.getNetworkStatus();   
   }
 
   getNetworkStatus(){
@@ -31,7 +31,7 @@ export class HeaderComponent  implements OnInit {
     } else {
       this.netStatus$ = true;
       console.log('Back online');
-    }
+    } 
     });
   }
   
