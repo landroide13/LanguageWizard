@@ -20,7 +20,7 @@ export class FabPortraitComponent  implements OnInit {
 
   constructor(
     private router: Router,
-    private modalService: ModalService
+    private modalService: ModalService,
   ) { }
 
   ngOnInit() {} 
@@ -29,12 +29,20 @@ export class FabPortraitComponent  implements OnInit {
     this.router.navigateByUrl('/')
   } 
 
-  navToLevels(){ 
+  navToSteps(){ 
     this.router.navigateByUrl('/levels/0')
+  }
+
+  navToLevels(){
+    this.router.navigateByUrl('/levels')
   }
 
   openModal() {
     this.modalService.openProgressModal();
   }
+
+  showQrMessage(){
+    this.modalService.presentAlert('Sorry this Feature is not Availible', 'Sorry')
+  } 
 
 }

@@ -25,6 +25,6 @@ export class UiService {
 
   isOnline(): boolean {
     return this.status.value;
-  }
+  } 
 
 }

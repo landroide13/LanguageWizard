@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Language } from 'src/app/core/model/language';
 import { LanguageService } from '../../core/services/language.service';
+import { ModalService } from '../../core/services/modal.service';
 
 @Component({
   selector: 'app-language',
@@ -16,6 +17,7 @@ export class LanguagePage implements OnInit {
 
   constructor(
     private langService: LanguageService,
+    private modalServ: ModalService
   ){ }
 
   ngOnInit() {
@@ -32,6 +34,10 @@ export class LanguagePage implements OnInit {
       this.errorMessage = error; 
     }
   )}
+
+  openModal(){
+    this.modalServ.presentAlert('Sorry this language is not Available', 'Sorry')
+  }
 
 }
 

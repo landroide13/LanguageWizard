@@ -1,7 +1,17 @@
-<ion-header [class]="class">
-  <ion-toolbar [color]="color">
+<ion-header>
+  <ion-toolbar 
+    [ngStyle]="{ '--background': netStatus$ ? '#92949c' : 'rgb(204, 58, 58)', 'color': netStatus$ ? '#fff' : '#fff' }">
     <ion-title>
       <h2>{{ title }}</h2>
+      <ion-alert
+        [isOpen]="isAlertOpen"
+        header="Connection Problems"
+        message="Your are Offline"
+        [buttons]="alertButtons"
+        (didDismiss)="setOpen(netStatus$)"
+        >
+      </ion-alert>
     </ion-title>
   </ion-toolbar>   
 </ion-header>
+  

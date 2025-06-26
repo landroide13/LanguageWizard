@@ -59,8 +59,6 @@ export class SlideshowPage implements OnInit, OnDestroy {
     })
   }
 
-
-
   async toLandscape(){
     try {
       await ScreenOrientation.lock({ orientation: 'landscape' });

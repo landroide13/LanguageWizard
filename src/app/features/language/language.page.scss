@@ -2,11 +2,11 @@ ion-label{
     font-weight: 900;
 }
 
-.online{
-    background-color: #92949c;
+.chip-active {
+  background-color: #b7f399; 
 }
 
-.offline{
-    background-color: rgb(204, 58, 58);
-    color: white;
+.chip-inactive {
+  background-color: #f4f5f8;
+  color: #222;
 }

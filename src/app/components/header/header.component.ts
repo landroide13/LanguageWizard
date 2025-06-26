@@ -13,9 +13,11 @@ export class HeaderComponent  implements OnInit {
 
   @Input() title!: string;
   @Input() class?: string;
-  @Input() color!: string;
+  @Input() color?: string;
 
   netStatus$: boolean = true;
+  alertButtons = ['Close'];
+  isAlertOpen = false;
 
   constructor(private ui:UiService) { }
 
@@ -27,12 +29,16 @@ export class HeaderComponent  implements OnInit {
     this.ui.status$.subscribe(isOnline => {
     if (!isOnline) {
       this.netStatus$ = false
-      console.log('You are offline');
+      console.log('You are offline'); 
     } else {
       this.netStatus$ = true;
       console.log('Back online');
     } 
     });
+  }
+
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
   }
   
 }

@@ -14,7 +14,7 @@ import { HeaderComponent } from "../../components/header/header.component";
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule, 
     LanguagePageRoutingModule,
     FabPortraitComponent,
     HeaderComponent

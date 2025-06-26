@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { ProgressModalComponent } from 'src/app/components/progress-modal/progress-modal.component';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { ProgressModalComponent } from 'src/app/components/progress-modal/progre
 })
 export class ModalService {
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController, private alertCtr: AlertController) { }
 
   async openProgressModal() {
     const modal = await this.modalCtrl.create({
@@ -20,6 +20,16 @@ export class ModalService {
         ] }
     });
     await modal.present();
+  }
+
+  async presentAlert(msg: string, header: string) {
+    const alert = await this.alertCtr.create({
+      header: `${header}`,
+      message: `${msg}`,
+      buttons: ['Action'],
+    });
+
+    await alert.present();
   }
 
 }

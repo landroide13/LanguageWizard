@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Level } from 'src/app/core/model/level';
 import { LevelService } from 'src/app/core/services/level.service';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-level',
@@ -13,7 +14,7 @@ export class LevelPage implements OnInit {
   levels: Level[] = [];
   errorMessage: string | null = null;
 
-  constructor(private levelService: LevelService) { }
+  constructor(private levelService: LevelService, private modalServ: ModalService) { }
 
   ngOnInit() { 
     this.getLevels();
@@ -29,6 +30,10 @@ export class LevelPage implements OnInit {
         this.errorMessage = error; 
       }
     )
+  }
+
+  openModal(){
+    this.modalServ.presentAlert('Sorry this level is not Available', 'Sorry')
   }
 
 }

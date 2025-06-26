@@ -4,6 +4,7 @@ ion-avatar {
   height: 40px;
 }
 
+//Animate Cat climbing.
 // .climbing-cat {
 //   width: 100%;
 //   height: auto;
@@ -45,6 +46,33 @@ ion-avatar {
   border: 2px solid #92949c;
   border-radius: 10px;
 }
+
+.active{
+   background-color: #b7f399; 
+   color: black;
+}
+
+.inactive{
+  background-color: #92949c;
+}
+
+// Animate Image.
+.fade-in-img {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
 
 
 

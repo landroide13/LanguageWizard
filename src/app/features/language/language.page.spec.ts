@@ -14,4 +14,4 @@ describe('LanguagePage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); 
