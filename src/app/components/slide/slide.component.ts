@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AlertController, IonicModule } from '@ionic/angular';
 import { Slidedetail, Slide } from 'src/app/core/model/slide';
 import { SlideService } from '../../core/services/slide.service';
@@ -15,7 +15,8 @@ export class SlideComponent  implements OnInit, OnChanges {
 
   @Input() id!:number;
   slide!:Slidedetail | null;
-  @Input() order!:number;
+  @Input() order!:number; 
+  @Output() btnNext = new EventEmitter();
 
   constructor(
     private slideServ: SlideService,
@@ -61,6 +62,9 @@ export class SlideComponent  implements OnInit, OnChanges {
     await alert.present();
   }
 
+  onNextSlide(){
+    this.btnNext.emit()
+  }
   
   
 }

@@ -13,12 +13,13 @@
         <ion-card-content>
           <audio [src]="slide.audioUrl" controls></audio> 
         </ion-card-content>
-        <h4 *ngIf="!slide.requiresAnswer">Skip to Next</h4>
+        <ion-button color="light" fill="clear" 
+          *ngIf="!slide.requiresAnswer" (click)="onNextSlide()" >Next >></ion-button>
       </ion-col>
     </ion-row>
 
     <!-- No Image -->
-    <ion-row *ngIf="!slide?.images?.length">
+    <ion-row *ngIf="!slide?.images?.length"> 
       <ion-col>
         <ion-card-header>
           <ion-card-title [ngClass]="!slide.isAnimated ? '' : 'zoom-in-text' ">
@@ -28,7 +29,8 @@
         <ion-card-content>
           <audio [src]="slide.audioUrl" controls></audio>
         </ion-card-content>
-        <h4 *ngIf="!slide.requiresAnswer">Skip to Next</h4>
+        <ion-button color="light" fill="clear"
+          *ngIf="!slide.requiresAnswer"  (click)="onNextSlide()">Next >></ion-button>
       </ion-col>
     </ion-row> 
   </ion-grid>

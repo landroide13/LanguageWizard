@@ -28,10 +28,10 @@ export class LanguagePage implements OnInit {
     this.langService.getLanguages().subscribe(
       (langs: Language[]) => {
       this.languages = langs
-      console.log(langs)
     },
     (error: string) => {
       this.errorMessage = error; 
+      this.modalServ.presentAlert(this.errorMessage, 'Sorry API Error');
     }
   )}
 
@@ -39,5 +39,7 @@ export class LanguagePage implements OnInit {
     this.modalServ.presentAlert('Sorry this language is not Available', 'Sorry')
   }
 
+
+  
 }
 

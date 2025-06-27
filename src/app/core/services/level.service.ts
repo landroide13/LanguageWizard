@@ -28,7 +28,6 @@ export class LevelService {
   private handleError(error: HttpErrorResponse) {
         let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
-          // Client-side or network error
           errorMessage = `Error: ${error.error.message}`;
         } else {
           // Backend error

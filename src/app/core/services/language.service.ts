@@ -17,11 +17,11 @@ export class LanguageService {
     return this.http.get<LanguageResponse>(this.url).pipe(
       map(res => res.languages),
       catchError(this.handleError)
-    );
+    ); 
   }
 
   private handleError(error: HttpErrorResponse) {
-        let errorMessage = '';
+        let errorMessage = ''; 
         if (error.error instanceof ErrorEvent) {
           // Client-side or network error
           errorMessage = `Error: ${error.error.message}`;
@@ -29,8 +29,7 @@ export class LanguageService {
           // Backend error
           errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        return throwError(errorMessage);
-    }  
-
+    return throwError(errorMessage);
+  }  
 
 }

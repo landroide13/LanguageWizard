@@ -4,6 +4,15 @@ ion-avatar {
   height: 40px;
 }
 
+ion-img{
+  width: 100%;
+  height: 45%;
+}
+
+.img{
+  background-image: url('/../../images/Mountain.png') 0 0/100% 100% no-repeat;
+}
+
 //Animate Cat climbing.
 // .climbing-cat {
 //   width: 100%;
@@ -54,6 +63,7 @@ ion-avatar {
 
 .inactive{
   background-color: #92949c;
+  color:white
 }
 
 // Animate Image.

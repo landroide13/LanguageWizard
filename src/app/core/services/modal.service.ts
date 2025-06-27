@@ -26,10 +26,11 @@ export class ModalService {
     const alert = await this.alertCtr.create({
       header: `${header}`,
       message: `${msg}`,
-      buttons: ['Action'],
+      buttons: ['Close'],
     });
 
     await alert.present();
   }
+
 
 }

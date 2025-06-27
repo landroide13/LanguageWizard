@@ -14,7 +14,10 @@ export class LevelPage implements OnInit {
   levels: Level[] = [];
   errorMessage: string | null = null;
 
-  constructor(private levelService: LevelService, private modalServ: ModalService) { }
+  constructor(
+    private levelService: LevelService, 
+    private modalServ: ModalService
+  ) { }
 
   ngOnInit() { 
     this.getLevels();
@@ -27,7 +30,8 @@ export class LevelPage implements OnInit {
         this.levels = levels
       },
        (error: string) => {
-        this.errorMessage = error; 
+        this.errorMessage = error;
+        this.modalServ.presentAlert(this.errorMessage, 'Sorry, API Out of service.') 
       }
     )
   }

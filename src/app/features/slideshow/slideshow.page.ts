@@ -4,7 +4,9 @@ import { AlertController, NavController } from '@ionic/angular';
 import { Slideshow } from 'src/app/core/model/slideshow';
 import { SlideshowService } from 'src/app/core/services/slideshow.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
-import { Slidedetail, Slide } from 'src/app/core/model/slide';
+import { Slide } from 'src/app/core/model/slide';
+import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
+import { SlideService } from 'src/app/core/services/slide.service';
 
 @Component({
   selector: 'app-slideshow',
@@ -17,6 +19,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
   slideShow!: Slideshow;
   slideShowId!: number;
   seletedSlide!: Slide | null;
+  nextSelectedSlide!: Slide | null;
 
   isAlertOpen = false;
   alertButtons = ['Action'];
@@ -31,7 +34,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getSlides();
-    this.toLandscape();  
+    this.toLandscape();   
   }
 
   getSlides(){
@@ -45,14 +48,15 @@ export class SlideshowPage implements OnInit, OnDestroy {
       this.slideShowServ.getSlide(this.slideShowId).subscribe({
         next: (res) => {
           this.slideShow = res;
-          console.log(res.slides)
         },
         error: (err) => {
           if (err.status === 404) {
-            this.presentAlert(err)
+            this.presentAlert('Sorry, This Content is Unable');
             this.router.navigate(['/levels/0']);  
           } else {
-            console.error('Unexpected error', err);
+            this.presentAlert('Sorry, There is a problem with server.');
+            this.router.navigate(['/levels/0']);
+            console.error('Unexpected error', err); 
           }
         }
       });
@@ -79,13 +83,31 @@ export class SlideshowPage implements OnInit, OnDestroy {
     this.seletedSlide = slide;
     console.log(slide)
   }
-  
+
+  onSelectNextSlide(){
+    let id = this.seletedSlide?.id! + 1;
+    this.slideShowServ.getSlide(this.slideShowId).subscribe({
+      next: (res) => {
+          this.seletedSlide = res.slides[id];
+        },
+      error: (err: HttpErrorResponse) => {
+        if(err.status === 404) {
+          this.presentAlert('Sorry, This Content is Unable');
+          this.router.navigate(['/levels/0']);  
+        } else {
+          this.presentAlert('Sorry, There is a problem with server.');
+          this.router.navigate(['/levels/0']);
+          console.error('Unexpected error', err.message); 
+        }
+      }
+    }) 
+  }
+
   async presentAlert(err: string) {
     const alert = await this.alertController.create({
-      header: 'This Step is not Available',
+      header: `${err}`,
       buttons: ['Close'],
     });
-
     await alert.present();
   }
 

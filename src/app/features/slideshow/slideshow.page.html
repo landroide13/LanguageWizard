@@ -6,11 +6,9 @@
   <div class="landscape-layout">
 
      <div class="left-pane"> 
-
       <div *ngIf="seletedSlide"> 
-        <app-slide [id]="seletedSlide.id"></app-slide>
+        <app-slide [id]="seletedSlide.id" (btnNext)="onSelectNextSlide()"></app-slide>
       </div>
-      
       <div *ngIf="!seletedSlide" class="ion-text-center ion-justify-content-center">
         <ion-card color="medium">
           <ion-card-header>
@@ -24,7 +22,7 @@
 
     </div>
 
-    <div class="right-pane">
+    <div class="right-pane"> 
       <ion-card color="medium">
         <ion-card-header>
           <ion-card-title>Your Lessons</ion-card-title>
@@ -32,7 +30,9 @@
         <ion-card-content>
           <div class="scrollable-list">
             <ion-list>
-              <ion-item color="medium" *ngFor="let slide of slideShow?.slides" (click)="onSelectedSlide(slide)">
+              <ion-item color="medium" 
+                *ngFor="let slide of slideShow?.slides" 
+                (click)="onSelectedSlide(slide)">
                 <ion-label>
                   <h2>Lesson #:{{ slide.id }}</h2>
                 </ion-label>
