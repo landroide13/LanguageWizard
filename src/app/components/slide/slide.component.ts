@@ -4,6 +4,7 @@ import { Slidedetail, Slide } from 'src/app/core/model/slide';
 import { SlideService } from '../../core/services/slide.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
 
 @Component({
   selector: 'app-slide',
@@ -38,11 +39,12 @@ export class SlideComponent  implements OnInit, OnChanges {
 
   loadSlide(){
     this.slideServ.getSlideById(this.id).subscribe({
-      next: slide => this.slide = slide,
-      error: (err) => {
+      next: (slide: Slidedetail) => this.slide = slide,
+      error: (err: HttpErrorResponse) => {
           if (err.status === 404) {
-            this.presentAlert(err)
+            this.presentAlert(err.message)
           } else {
+            this.presentAlert(err.message)
             console.error('Unexpected error', err);
           }
         }

@@ -21,7 +21,7 @@ export class StepPage implements OnInit, AfterViewInit {
   errorMessage!: string | null;
 
   constructor(
-    private actRoute: ActivatedRoute, 
+    private actRoute: ActivatedRoute,   
     private navCtr: NavController,
     private levelServ: LevelService,
     private modalServ: ModalService
@@ -31,7 +31,7 @@ export class StepPage implements OnInit, AfterViewInit {
     this.loadStep();
     this.animateClimb();
   }
-
+ 
   ngAfterViewInit() {
     setInterval(() => {
       const el = document.querySelector('.flip-icon');
