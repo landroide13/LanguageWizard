@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ToastController } from '@ionic/angular';
+import { distinctUntilChanged, skip } from 'rxjs';
 import { UiService } from 'src/app/core/services/ui.service';
 
 @Component({
@@ -17,31 +18,27 @@ export class HeaderComponent  implements OnInit {
   @Input() color?: string;
 
   netStatus$: boolean = true;
-  alertButtons = ['Close'];
-  isAlertOpen = false;
 
-  constructor(private ui:UiService) { }
+  constructor(private ui:UiService, 
+    private toastController: ToastController
+  ){}
 
   ngOnInit() {
-    this.getNetworkStatus();   
-  }
-
-  // Check network connection
-  getNetworkStatus(){
-    this.ui.status$.subscribe(isOnline => {
-    if (!isOnline) {
-      this.netStatus$ = false
-      console.log('You are offline'); 
-    } else {
-      this.netStatus$ = true;
-      console.log('Back online');
-    } 
-    });
-  }
-
-  // Set status network.
-  setOpen(isOpen: boolean) {
-    this.isAlertOpen = isOpen;
+    this.ui.isOnline$
+      .pipe( 
+        distinctUntilChanged(),
+        skip(1),
+      )
+      .subscribe(async isOnline => {
+        this.netStatus$ = isOnline;
+        const toast = await this.toastController.create({
+          message: isOnline ? 'Back online' : 'You are offline',
+          duration: 3000,
+          color: isOnline ? 'success' : 'danger',
+        });
+        await toast.present();
+      }
+    );   
   }
   
 }

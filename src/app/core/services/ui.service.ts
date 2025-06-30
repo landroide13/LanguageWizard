@@ -1,30 +1,33 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Network } from '@capacitor/network';
+import { isPlatform } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UiService {
 
-  private status = new BehaviorSubject<boolean>(true);
-  public status$ = this.status.asObservable();
+  private currentStatus: boolean | null = null;
+  private networkStatus = new BehaviorSubject<boolean>(true);
+  public isOnline$ = this.networkStatus.asObservable();
 
   constructor() {
     this.initNetworkMonitoring();
    }
  
-   async initNetworkMonitoring() {
+  private async initNetworkMonitoring() {
     const status = await Network.getStatus();
-    this.status.next(status.connected);
+    this.currentStatus = status.connected;
+    this.networkStatus.next(status.connected);
 
-    Network.addListener('networkStatusChange', (newStatus) => {
-      this.status.next(newStatus.connected);
+    Network.addListener('networkStatusChange', (status) => {
+      if (this.currentStatus !== status.connected) {
+        this.currentStatus = status.connected;
+        this.networkStatus.next(status.connected);
+      }
     });
-  }
 
-  isOnline(): boolean {
-    return this.status.value;
-  } 
+  }
 
 }

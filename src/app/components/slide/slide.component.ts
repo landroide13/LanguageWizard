@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AlertController, IonicModule } from '@ionic/angular';
-import { Slidedetail, Slide } from 'src/app/core/model/slide';
+import { Slidedetail } from 'src/app/core/model/slide';
 import { SlideService } from '../../core/services/slide.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
 
 @Component({
@@ -22,7 +21,6 @@ export class SlideComponent  implements OnInit, OnChanges {
 
   constructor(
     private slideServ: SlideService,
-    private router: Router,
     private alertController: AlertController
   ) { }
 
@@ -47,7 +45,6 @@ export class SlideComponent  implements OnInit, OnChanges {
             this.presentAlert(err.message)
           } else {
             this.presentAlert(err.message)
-            console.error('Unexpected error', err);
           }
         }
     })
@@ -63,7 +60,6 @@ export class SlideComponent  implements OnInit, OnChanges {
       header: 'Sorry, This Lesson is not Available',
       buttons: ['Close'],
     });
-
     await alert.present();
   }
 

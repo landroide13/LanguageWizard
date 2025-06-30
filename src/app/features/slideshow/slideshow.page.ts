@@ -6,7 +6,6 @@ import { SlideshowService } from 'src/app/core/services/slideshow.service';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Slide } from 'src/app/core/model/slide';
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
-import { SlideService } from 'src/app/core/services/slide.service';
 
 @Component({
   selector: 'app-slideshow',
