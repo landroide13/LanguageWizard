@@ -9,6 +9,17 @@ ion-img{
   height: 25%;
 }
 
+h1{
+  color: white;
+  padding-top: 50px;
+}
+
+ion-list{
+  align-self: center;
+  justify-self: center;
+  margin-top: 25px;
+}
+
 .img{
   --background: transparent !important;
   background: url('../../../assets/images/Mountain.png') no-repeat center center / cover;
@@ -72,13 +83,11 @@ ion-img{
 }
 
 .active{
-   background-color: #b7f399; 
-   color: black;
+  background-color: #b7f399; 
 }
 
 .inactive{
-  background-color: #92949c;
-  color:white
+  background-color: #dfdfdf;
 }
 
 // Animate Image.

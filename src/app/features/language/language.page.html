@@ -2,9 +2,11 @@
 
 <ion-content class="ion-padding">
 
+  <ion-img src="assets/images/wizard1.png" class="ion-padding img-bordered fade-in-img"></ion-img>
+
   <h1>Choose a Language</h1>
   
-  <ion-grid class="ion-margin">
+  <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let lang of languages">
         <ion-chip [ngClass]="lang.code === 'en' ? 'chip-active' : 'chip-inactive'" mode="ios">
@@ -18,5 +20,5 @@
 
   <app-fab-portrait side="top" horizontal="end" vertical="bottom"></app-fab-portrait>
  
-</ion-content>
+</ion-content> 
   

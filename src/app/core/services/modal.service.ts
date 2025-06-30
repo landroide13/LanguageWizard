@@ -12,7 +12,8 @@ export class ModalService {
   async openProgressModal() {
     const modal = await this.modalCtrl.create({
       component: ProgressModalComponent,
-      componentProps: { userProgress: 60, 
+      componentProps: { 
+        userProgress: 60, 
         otherUsersProgress: [
           { name: 'Alice', progress: 80 },
           { name: 'Bob', progress: 60 },
@@ -28,7 +29,6 @@ export class ModalService {
       message: `${msg}`,
       buttons: ['Close'],
     });
-
     await alert.present();
   }
 

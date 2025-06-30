@@ -9,8 +9,7 @@ describe('FabPortraitComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FabPortraitComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), FabPortraitComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FabPortraitComponent);

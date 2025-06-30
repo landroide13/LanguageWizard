@@ -23,6 +23,7 @@ export class LevelPage implements OnInit {
     this.getLevels();
   }
 
+  //Load and Display Levels.
   getLevels(){
     this.levelService.getLevels().subscribe(
       (levels: Level[]) => {
@@ -36,6 +37,7 @@ export class LevelPage implements OnInit {
     )
   }
 
+  // Display Alert.
   openModal(){
     this.modalServ.presentAlert('Sorry this level is not Available', 'Sorry')
   }

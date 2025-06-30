@@ -15,6 +15,6 @@ export class SlideshowService {
 
   getSlide(id: number): Observable<Slideshow>{
     return this.http.get<Slideshow>(`${this.url}/${id}`)
-  }
-
+  } 
+ 
 }

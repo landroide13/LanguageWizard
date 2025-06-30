@@ -7,7 +7,8 @@ import { ModalService } from 'src/app/core/services/modal.service';
   selector: 'app-progress-modal',
   templateUrl: './progress-modal.component.html',
   styleUrls: ['./progress-modal.component.scss'],
-  imports:[IonicModule, CommonModule]
+  imports:[IonicModule, CommonModule],
+  standalone: true
 })
 export class ProgressModalComponent  implements OnInit {
 

@@ -1,4 +1,4 @@
-<app-header title="Your Steps"></app-header>
+<app-header title="Language Wizard"></app-header>
 
 <ion-content fullscreen="true">
 
@@ -6,27 +6,25 @@
     <ion-row> 
       <ion-col size="12"  size-sm="8" offset-sm="2" >
 
-        <ion-img src="assets/images/wizard1.png" class="ion-padding img-bordered fade-in-img"></ion-img>
+        <ion-img src="assets/images/wizard1.png" class="ion-padding fade-in-img"></ion-img>
 
         <div class="img">
+
+          <h1 color="light" class="ion-text-center">Your Steps</h1>
+
           <ion-list lines="none" class="transparent-list ion-no-padding">
             <ion-item *ngFor="let step of level?.steps; let i = index"> 
               <ion-card  [ngClass]="step.id === 1 ? 'active' : 'inactive'">
-                <ion-card-header [routerLink]="['/slideshows', step.id]">
-                  <ion-card-subtitle>
-                    {{ step.title }}
-                  </ion-card-subtitle>
-                  <ion-card-title></ion-card-title> 
-                </ion-card-header> 
+                <ion-card-header [routerLink]="['/slideshows', step.id]"></ion-card-header> 
               </ion-card>
               <ion-avatar slot="start"> 
-                <ion-icon *ngIf="i === 1" name="logo-octocat" size="large" class="flip-icon"></ion-icon>
+                <ion-icon color="light" *ngIf="i === 1" name="logo-octocat" size="large" class="flip-icon"></ion-icon>
               </ion-avatar>
             </ion-item>
           </ion-list>
+          
         </div>
-        
-      </ion-col>
+      </ion-col> 
     </ion-row>
     <app-fab-portrait class="custom-margin" side="top" horizontal="end" vertical="bottom"></app-fab-portrait>
   </ion-grid>

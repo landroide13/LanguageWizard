@@ -37,6 +37,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
     this.toLandscape();   
   }
 
+  // Diplay Slides.
   getSlides(){
     this.actRoute.paramMap.subscribe(paramMap => {
       const id = +this.actRoute.snapshot.paramMap.get('slideshowId')!;
@@ -63,6 +64,7 @@ export class SlideshowPage implements OnInit, OnDestroy {
     })
   }
 
+  // Flip To Landscape.
   async toLandscape(){
     try {
       await ScreenOrientation.lock({ orientation: 'landscape' });
@@ -79,16 +81,18 @@ export class SlideshowPage implements OnInit, OnDestroy {
     }
   }
 
+  // Select on Slide.
   onSelectedSlide(slide:Slide){
     this.seletedSlide = slide;
     console.log(slide)
   }
 
+  // Click to select next slide.
   onSelectNextSlide(){
     let id = this.seletedSlide?.id! + 1;
     this.slideShowServ.getSlide(this.slideShowId).subscribe({
       next: (res) => {
-          this.seletedSlide = res.slides[id];
+          this.seletedSlide = res.slides[id]; 
         },
       error: (err: HttpErrorResponse) => {
         if(err.status === 404) {
@@ -97,12 +101,13 @@ export class SlideshowPage implements OnInit, OnDestroy {
         } else {
           this.presentAlert('Sorry, There is a problem with server.');
           this.router.navigate(['/levels/0']);
-          console.error('Unexpected error', err.message); 
+          console.error('Unexpected error', err.message);  
         }
       }
     }) 
   }
 
+  // Show Alert 
   async presentAlert(err: string) {
     const alert = await this.alertController.create({
       header: `${err}`,

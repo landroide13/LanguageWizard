@@ -19,7 +19,7 @@ export class LevelService {
       map(res => res.levels),
       catchError(this.handleError)
     )
-  } 
+  }  
 
   levelDetail(levelId: number): Observable<LevelDetail>{
     return this.http.get<LevelDetail>(`${this.url}/${levelId}`)

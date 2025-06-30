@@ -32,6 +32,7 @@ export class StepPage implements OnInit, AfterViewInit {
     this.animateClimb();
   }
  
+  // Effect flip cat icon.
   ngAfterViewInit() {
     setInterval(() => {
       const el = document.querySelector('.flip-icon');
@@ -40,6 +41,7 @@ export class StepPage implements OnInit, AfterViewInit {
     }, 3000);  
   }
 
+  //Load and Display Steps.
   loadStep(){
     this.actRoute.paramMap.subscribe(paramMap => {
       this.levelId = +this.actRoute.snapshot.paramMap.get('id')!;
@@ -60,7 +62,7 @@ export class StepPage implements OnInit, AfterViewInit {
     })
   }
  
-  //Progress Make the Cat Climb. 
+  //Progress Make the Cat Climb up next Steps.( Not Set yet.)
   async animateClimb() {
     for (let i = this.level.steps.length - 1; i >= 0; i--) {
       this.activeIndex = i;

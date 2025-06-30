@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AlertController, IonicModule } from '@ionic/angular';
 import { Slidedetail, Slide } from 'src/app/core/model/slide';
 import { SlideService } from '../../core/services/slide.service';
@@ -10,7 +10,8 @@ import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
   selector: 'app-slide',
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.scss'],
-  imports: [IonicModule, CommonModule]
+  imports: [IonicModule, CommonModule],
+  standalone: true
 })
 export class SlideComponent  implements OnInit, OnChanges {
 
@@ -37,6 +38,7 @@ export class SlideComponent  implements OnInit, OnChanges {
     }
   }
 
+  // Load and Display Slide.
   loadSlide(){
     this.slideServ.getSlideById(this.id).subscribe({
       next: (slide: Slidedetail) => this.slide = slide,
@@ -55,6 +57,7 @@ export class SlideComponent  implements OnInit, OnChanges {
     this.slide = null;
   }
 
+  // Display alert.
   async presentAlert(err: string) {
     const alert = await this.alertController.create({
       header: 'Sorry, This Lesson is not Available',
@@ -64,6 +67,7 @@ export class SlideComponent  implements OnInit, OnChanges {
     await alert.present();
   }
 
+  // Click and move next slide.
   onNextSlide(){
     this.btnNext.emit()
   }
